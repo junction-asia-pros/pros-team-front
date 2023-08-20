@@ -77,7 +77,6 @@ export const acceptBowl = async (bowl, userKey) => {
     //   weight: bowl.weight,
     //   dish: bowl.dish,
     // };
-    console.log(bowl);
     let res = await fetch(
       `http://10.200.14.206:8080/bowls/${bowl.id}?collectState=COLLECTING`,
       {

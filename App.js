@@ -24,6 +24,7 @@ import loader from "./assets/loader.svg";
 import shopPin from "./assets/ShopPin.png";
 import clover from "./assets/Clover/Clover4.png";
 import bicycle from "./assets/Bicycle.png";
+import cupLogo from "./assets/cupLogo.png";
 
 import Frame0 from "./assets/Frame0.png";
 import Frame1 from "./assets/Frame1.png";
@@ -236,7 +237,6 @@ export default function App() {
   const updateData = () => {
     (async () => {
       let data = await getBowlInfo();
-      console.log(data);
       setBowls(data);
       let displayData = [];
       for (let i = 0; i < data.length; i++) {
@@ -259,11 +259,8 @@ export default function App() {
       setPickUpBowls([...myBowls]);
 
       let _shopData = await getShops();
-      console.log(_shopData);
       if (Array.isArray(_shopData)) setShops(_shopData);
       else setShops([]);
-
-      console.log("Data Updated");
     })();
   };
 
@@ -288,9 +285,7 @@ export default function App() {
         let restID = bowls[selected].restaurantId;
         await delay(50);
         slideUp.current.hide();
-        console.log(bowls[selected].id);
-        let res = await acceptBowl(bowls[selected], userKey);
-        console.log(JSON.stringify(res));
+        await acceptBowl(bowls[selected], userKey);
       } catch (error) {
         console.log(error);
       }
@@ -337,7 +332,6 @@ export default function App() {
 
       // let _userKey = await getUserKey();
       let _shopData = await getShops();
-      console.log(_shopData);
       if (Array.isArray(_shopData)) setShops(_shopData);
       else setShops([]);
 
@@ -347,7 +341,6 @@ export default function App() {
       for (let i = 0; i < data.length; i++) {
         const bowl = data[i];
         if (bowl.collectState != "COMPLETE") {
-          console.log(bowl.collectState);
           displayData.push(bowl);
         }
       }
@@ -386,12 +379,16 @@ export default function App() {
       });
       let formattedAddress = _address[0].region + " " + _address[0].name;
       setCurrentAddress(formattedAddress);
+      let shop = undefined;
 
-      const shop = shops.filter(
-        (shop) => shop.shopId == pickUpBowls[0].restaurantId
-      )[0];
+      if (pickUpBowls.length > 0) {
+        shop = shops.filter(
+          (shop) => shop.shopId == pickUpBowls[0].restaurantId
+        )[0];
+      }
+
       let Region = {};
-      if (pickUpBowls.length > 0 && shop !== undefined) {
+      if (shop !== undefined) {
         Region = {
           latitude: shop.shopLocationResponseDto.latitude,
           longitude: shop.shopLocationResponseDto.longitude,
@@ -449,10 +446,11 @@ export default function App() {
         >
           <Text style={styles.loadingText}>PiCK!</Text>
           <Animated.Image
-            source={ghost}
+            source={cupLogo}
             style={{
-              width: 103,
-              height: 103,
+              top: -20,
+              width: 183,
+              height: 183,
               transform: [{ scale: sizeUpAnim }],
             }}
           />
