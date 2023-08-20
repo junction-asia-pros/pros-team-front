@@ -14,7 +14,7 @@ export default function NearPick({ info, handleFocus }) {
     >
       <View style={styles.nearPickStyles}>
         <Image source={officeBuilding} style={styles.nearPickImage} />
-        <Text style={styles.nearPickText}>{info.openAddress2}</Text>
+        <Text style={styles.nearPickText}>{info.orderAddress2}</Text>
         <Text style={styles.nearPickDistanceText}>근처 10m</Text>
         <View style={styles.nearPickWeight}>
           <Text>

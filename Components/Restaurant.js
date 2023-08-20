@@ -2,10 +2,11 @@ import { Image, View, Text, TouchableOpacity } from "react-native";
 import { styles } from "../AppStyles";
 import officeBuilding from "../assets/office-building.png";
 import { Button } from "react-native";
-import dishSmall from "../assets/dish-small.png";
-import dishMed from "../assets/dish-med.png";
-import dishBig from "../assets/dish-big.png";
 import { Ionicons } from "@expo/vector-icons";
+
+import cupIcon from "../assets/CupIcon.png";
+import dishIcon from "../assets/DishIcon.png";
+import utensilIcon from "../assets/UtensilIcon.png";
 
 import DishCount from "./DishCount";
 
@@ -15,7 +16,7 @@ export default function Restaurant({ info, handlePickUp }) {
       <View style={styles.restaurantTop}>
         <Image source={officeBuilding} style={styles.restaurantImage} />
         <View style={styles.restaurantInfo}>
-          <Text style={styles.orderAdd2}>{info?.openAddress2}</Text>
+          <Text style={styles.orderAdd2}>{info?.orderAddress2}</Text>
           <View
             style={{
               flexDirection: "row",
@@ -24,7 +25,7 @@ export default function Restaurant({ info, handlePickUp }) {
             }}
           >
             <Ionicons name="location-sharp" size={16} color="#727171" />
-            <Text style={styles.orderAdd1}>{info?.openAddress1}</Text>
+            <Text style={styles.orderAdd1}>{info?.orderAddress1}</Text>
           </View>
         </View>
       </View>
@@ -40,15 +41,46 @@ export default function Restaurant({ info, handlePickUp }) {
         <View
           style={{
             flex: 2,
-            flexDirection: "row",
+            flexDirection: "column",
             justifyContent: "space-around",
             alignItems: "center",
             width: "100%",
           }}
         >
-          <DishCount imageSource={dishSmall} count={0} index={2} />
-          <DishCount imageSource={dishMed} count={0} index={1} />
-          <DishCount imageSource={dishBig} count={0} index={0} />
+          <View style={{ flex: 1, flexDirection: "row" }}>
+            <DishCount
+              imageSource={dishIcon}
+              count={0}
+              customTranslate={[{ scale: 0.2 }, { translateY: -255 }]}
+            />
+            <DishCount
+              imageSource={cupIcon}
+              count={0}
+              customTranslate={[{ scale: 1 }, { translateY: -20 }]}
+            />
+            <DishCount
+              imageSource={utensilIcon}
+              count={0}
+              customTranslate={[{ scale: 1 }]}
+            />
+          </View>
+          <View style={{ flex: 1, flexDirection: "row" }}>
+            <DishCount
+              imageSource={dishIcon}
+              count={0}
+              customTranslate={[{ scale: 0.25 }, { translateY: -185 }]}
+            />
+            <DishCount
+              imageSource={dishIcon}
+              count={0}
+              customTranslate={[{ scale: 0.3 }, { translateY: -165 }]}
+            />
+            <DishCount
+              imageSource={dishIcon}
+              count={0}
+              customTranslate={[{ scale: 0.38 }, { translateY: -135 }]}
+            />
+          </View>
         </View>
         <View
           style={{ flex: 1.2, justifyContent: "center", alignItems: "center" }}

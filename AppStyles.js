@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    fontFamily: "Pretendard",
   },
   main: {
     flex: 1,
@@ -13,21 +14,35 @@ export const styles = StyleSheet.create({
     height: "100%",
     padding: 20,
   },
+  loadingText: {
+    //     text-align: center;
+    // font-family: Cocogoose;
+    // font-size: 60px;
+    // font-style: normal;
+    // font-weight: 400;
+    // line-height: 160%;
+    textAlign: "center",
+    fontFamily: "Cocogoose",
+    fontSize: 60,
+    fontStyle: "normal",
+    fontWeight: "400",
+    color: "#FFF",
+  },
 
   map: {
     width: "100%",
     height: "100%",
   },
-  button: {
+  reloadButton: {
     position: "absolute",
-    bottom: 70,
-    right: 40,
+    top: 150,
+    right: 20,
     backgroundColor: "white",
     padding: 10,
     borderRadius: 100,
   },
   slideUpContainer: {
-    height: "60%",
+    height: "65%",
     backgroundColor: "white",
     alignItems: "center",
     justifyContent: "top",
@@ -55,6 +70,10 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  searchBarIcon: {
+    width: 30,
+    height: 30,
+  },
   searchBar: {
     width: "90%",
     height: "120%",
@@ -64,7 +83,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
   },
   searchBarInput: {
     flex: 1,
@@ -72,12 +91,13 @@ export const styles = StyleSheet.create({
     height: "100%",
     backgroundColor: "white",
     borderRadius: 20,
+    marginLeft: 10,
   },
 
   restaurant: {
     flex: 1,
     flexDirection: "column",
-    paddingHorizontal: 35,
+    paddingHorizontal: 5,
   },
   restaurantTop: {
     flex: 1,
@@ -86,6 +106,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "transparent",
+    paddingHorizontal: 10,
   },
   restaurantImage: {
     backgroundColor: "transparent",
@@ -121,7 +142,7 @@ export const styles = StyleSheet.create({
     color: "white",
   },
   restaurantBody: {
-    flex: 2.5,
+    flex: 3,
     backgroundColor: "#F0F0F0",
     borderRadius: 20,
     marginTop: 20,
@@ -286,7 +307,7 @@ export const styles = StyleSheet.create({
   pickingupContainer: {
     flex: 1,
     justifyContent: "top",
-    alignItems: "center",
+    alignItems: "stretch",
     backgroundColor: "white",
     borderRadius: 40,
     padding: 20,
@@ -294,6 +315,7 @@ export const styles = StyleSheet.create({
     width: "100%",
     flexDirection: "column",
   },
+  pickingupScrollContainer: {},
   pickingupTop: {
     flex: 1,
     width: "100%",
@@ -394,7 +416,6 @@ export const styles = StyleSheet.create({
   },
   locationBottomScroll: {
     zIndex: 1,
-    width: "100%",
   },
   nearPickTitle: {
     fontSize: 18,
@@ -442,12 +463,14 @@ export const styles = StyleSheet.create({
 
   returnAlertContainer: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "top",
     alignItems: "center",
+    flexDirection: "row",
     backgroundColor: "#FF9B3F",
     borderRadius: 15,
     position: "absolute",
-    bottom: "22%",
+    paddingLeft: 20,
+    top: "-8%",
     left: "5%",
     width: "90%",
     height: "8%",
@@ -459,9 +482,193 @@ export const styles = StyleSheet.create({
     },
     shadowOpacity: 0.15, // Adjust the shadow opacity as needed
   },
+  returnAlertIcon: {
+    width: 30,
+    height: 30,
+  },
   returnAlertText: {
     fontSize: 16,
     fontWeight: "600",
     color: "white",
+    marginLeft: 10,
+  },
+
+  successModelView: {
+    width: "90%",
+    height: 350,
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    paddingHorizontal: 15,
+    paddingTop: 30,
+    alignItems: "center",
+  },
+  successModalTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#494949",
+  },
+  successIconContainer: {
+    flex: 1.3,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  successIcon: {
+    width: 100,
+    height: 100,
+    marginTop: 90,
+  },
+  successModalDesc: {
+    fontSize: 16,
+    marginTop: 80,
+  },
+  successModelButtonContainer: {
+    flex: 1,
+    flexDirection: "row",
+    marginTop: 10,
+  },
+  successModelPickUpButton: {
+    flex: 1,
+    height: 50,
+    backgroundColor: "#FF9B3F",
+    borderRadius: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 10,
+    marginHorizontal: 5,
+  },
+
+  EmoteContainer: {
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    backgroundColor: "white",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "stretch",
+  },
+  EmoteTopBar: {
+    flex: 0.7,
+  },
+  EmoteTop: {
+    flex: 0.7,
+    paddingTop: 50,
+    paddingHorizontal: 20,
+  },
+  EmoteBody: {
+    flex: 3,
+    backgroundColor: "white",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  EmoteTitle1: {
+    fontSize: 13,
+    color: "#727171",
+  },
+  EmoteTitle2: {
+    fontSize: 22,
+    color: "#494949",
+    fontWeight: "bold",
+    marginTop: 10,
+  },
+  EmoteBottom: {
+    flex: 1.2,
+    paddingHorizontal: 40,
+    flexDirection: "row",
+    justifyContent: "top",
+    alignItems: "start",
+  },
+  EmoteFooter: {
+    flex: 1,
+  },
+  EmoteBackButton: {
+    top: 50,
+    right: -20,
+  },
+  emoteImage: {
+    width: 220,
+    height: 222,
+  },
+  EmoteMultiplier: {
+    backgroundColor: "#FF9B3F",
+    borderRadius: 100,
+    width: 48,
+    height: 48,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  EmoteMultiplierText: {
+    fontSize: 22,
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  EmoteDesc: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "flex-start",
+    flexDirection: "column",
+    marginLeft: 20,
+  },
+  EmoteDescText: {
+    fontSize: 16,
+    color: "#727171",
+    textAlign: "center",
+  },
+  EmoteButton: {
+    backgroundColor: "#FF9B3F",
+    borderRadius: 15,
+    height: 60,
+    justifyContent: "center",
+    alignItems: "center",
+    marginHorizontal: 20,
+  },
+  EmoteButtonText: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "white",
+  },
+  EmoteAnimation: {
+    position: "absolute",
+    width: 272,
+    height: 274,
+    top: "15%",
+    left: "16%",
+  },
+  EmoteAnimBall: {
+    position: "absolute",
+    width: 10,
+    height: 10,
+    top: "48%",
+    left: "48%",
+    backgroundColor: "#D375FF",
+    borderRadius: 100,
+  },
+  CollectionContainer: {
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    backgroundColor: "white",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "stretch",
+  },
+  CollectionImage: {
+    flex: 1,
+    justifyContent: "center",
+  },
+  CollectionBackButton: {
+    position: "absolute",
+    top: 50,
+    left: 20,
+  },
+  CollectionEmoteButton: {
+    position: "absolute",
+    top: 340,
+    left: 20,
+  },
+  CollectionEmoteButtonImage: {
+    width: 117,
+    height: 123,
   },
 });

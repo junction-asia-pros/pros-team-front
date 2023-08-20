@@ -1,7 +1,7 @@
 import { View, Image, Text } from "react-native";
 import { styles } from "../AppStyles";
 
-export default function DishCount({ imageSource, count, index }) {
+export default function DishCount({ imageSource, count, customTranslate }) {
   return (
     <View style={styles.dishCount}>
       <Image
@@ -9,9 +9,7 @@ export default function DishCount({ imageSource, count, index }) {
         style={[
           styles.restaurantImage,
           {
-            marginTop: index * 18,
-            width: 40 * (3 - index * 0.8),
-            height: 40 * (3 - index * 0.8),
+            transform: customTranslate,
           },
         ]}
       />
