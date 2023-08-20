@@ -315,15 +315,23 @@ export const styles = StyleSheet.create({
     width: "100%",
     flexDirection: "column",
   },
-  pickingupScrollContainer: {},
+  pickingupScrollContainer: {
+    backgroundColor: "white",
+  },
   pickingupTop: {
     flex: 1,
     width: "100%",
-    flexDirection: "row",
+    flexDirection: "column",
     marginTop: 30,
-    alignItems: "start",
+    alignItems: "stretch",
     justifyContent: "center",
     paddingHorizontal: 20,
+  },
+  frame: {
+    width: "100",
+    height: "100",
+    backgroundColor: "transparent",
+    marginHorizontal: 5,
   },
   restaurantIconHolder: {
     flex: 1,

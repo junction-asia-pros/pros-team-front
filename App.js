@@ -25,6 +25,13 @@ import shopPin from "./assets/ShopPin.png";
 import clover from "./assets/Clover/Clover4.png";
 import bicycle from "./assets/Bicycle.png";
 
+import Frame0 from "./assets/Frame0.png";
+import Frame1 from "./assets/Frame1.png";
+import Frame2 from "./assets/Frame2.png";
+import Frame3 from "./assets/Frame3.png";
+import Frame4 from "./assets/Frame4.png";
+import Frame5 from "./assets/Frame5.png";
+
 import SlidingUpPanel from "rn-sliding-up-panel";
 
 import * as Location from "expo-location";
@@ -628,7 +635,7 @@ export default function App() {
               top:
                 height *
                 (status == "pickingUp"
-                  ? 0.45
+                  ? 0.55
                   : status == "showOrder"
                   ? 0.65
                   : 0.5),
@@ -666,32 +673,82 @@ export default function App() {
                     {pickUpBowls.map((order, index) => {
                       return (
                         <View key={index} style={styles.pickingupTop}>
-                          <View style={styles.restaurantTop}>
-                            <Image
-                              source={defaultRestIcon}
-                              style={styles.restaurantImage}
-                            />
-                          </View>
-                          <View
-                            style={{
-                              flex: 2,
-                              justifyContent: "center",
-                              paddingHorizontal: 10,
-                            }}
-                          >
-                            <Text style={styles.pickUpName}>
-                              {order.restaurantName}
-                            </Text>
-                            <View style={styles.pickUpAddresss}>
-                              <Ionicons
-                                name="location-sharp"
-                                size={18}
-                                color="#727171"
+                          <View style={{ flex: 1, flexDirection: "row" }}>
+                            <View style={styles.restaurantTop}>
+                              <Image
+                                source={defaultRestIcon}
+                                style={styles.restaurantImage}
                               />
-                              <Text style={styles.pickUpAddressText}>
-                                {order.restaurantAddress}
-                              </Text>
                             </View>
+                            <View
+                              style={{
+                                flex: 2,
+                                justifyContent: "center",
+                                paddingHorizontal: 10,
+                                top: -5,
+                              }}
+                            >
+                              <Text style={styles.pickUpName}>
+                                {order.restaurantName}
+                              </Text>
+                              <View style={styles.pickUpAddresss}>
+                                <Ionicons
+                                  name="location-sharp"
+                                  size={18}
+                                  color="#727171"
+                                />
+                                <Text style={styles.pickUpAddressText}>
+                                  {order.restaurantAddress}
+                                </Text>
+                              </View>
+                            </View>
+                          </View>
+                          <View style={{ flex: 1 }}>
+                            <ScrollView
+                              horizontal
+                              showsHorizontalScrollIndicator={false}
+                              contentContainerStyle={{
+                                marginTop: 10,
+                                height: 100,
+                              }}
+                            >
+                              <View style={styles.frame}>
+                                <Image
+                                  source={Frame0}
+                                  style={styles.frameImage}
+                                />
+                              </View>
+                              <View style={styles.frame}>
+                                <Image
+                                  source={Frame1}
+                                  style={styles.frameImage}
+                                />
+                              </View>
+                              <View style={styles.frame}>
+                                <Image
+                                  source={Frame2}
+                                  style={styles.frameImage}
+                                />
+                              </View>
+                              <View style={styles.frame}>
+                                <Image
+                                  source={Frame3}
+                                  style={styles.frameImage}
+                                />
+                              </View>
+                              <View style={styles.frame}>
+                                <Image
+                                  source={Frame4}
+                                  style={styles.frameImage}
+                                />
+                              </View>
+                              <View style={styles.frame}>
+                                <Image
+                                  source={Frame5}
+                                  style={styles.frameImage}
+                                />
+                              </View>
+                            </ScrollView>
                           </View>
                         </View>
                       );
@@ -757,18 +814,18 @@ export default function App() {
   );
 }
 
-function calcDistance(lat1, lon1, lat2, lon2) {
-  const R = 6371e3; // metres
-  const φ1 = (lat1 * Math.PI) / 180; // φ, λ in radians
-  const φ2 = (lat2 * Math.PI) / 180;
-  const Δφ = ((lat2 - lat1) * Math.PI) / 180;
-  const Δλ = ((lon2 - lon1) * Math.PI) / 180;
+// function calcDistance(lat1, lon1, lat2, lon2) {
+//   const R = 6371e3; // metres
+//   const φ1 = (lat1 * Math.PI) / 180; // φ, λ in radians
+//   const φ2 = (lat2 * Math.PI) / 180;
+//   const Δφ = ((lat2 - lat1) * Math.PI) / 180;
+//   const Δλ = ((lon2 - lon1) * Math.PI) / 180;
 
-  const a =
-    Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
-    Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+//   const a =
+//     Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+//     Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+//   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-  const d = R * c; // in metres
-  return d;
-}
+//   const d = R * c; // in metres
+//   return d;
+// }
